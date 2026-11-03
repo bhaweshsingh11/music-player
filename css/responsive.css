@@ -1,0 +1,64 @@
+@media (max-width: 980px) {
+  .site-header, .landing-screen, .content-width { width: min(100% - 44px, 760px); }
+  .landing-screen { min-height: 880px; height: auto; grid-template-columns: 1fr; gap: 0; padding-top: 145px; }
+  .landing-copy { text-align: center; margin: 0 auto; }
+  .hero-description { margin-left: auto; margin-right: auto; }
+  .hero-actions { justify-content: center; }
+  .hero-art-wrap { min-height: 470px; margin-top: 10px; transform: scale(.86); }
+  .scroll-hint { left: 50%; transform: translateX(-50%); white-space: nowrap; }
+  .featured-card { grid-template-columns: minmax(0, 1fr) 250px; padding: 35px; }
+  .featured-art { width: 230px; height: 230px; }
+  .featured-quote { display: none; }
+  .mood-grid { grid-template-columns: repeat(2, 1fr); }
+  .song-grid { grid-template-columns: repeat(2, 1fr); }
+  .library-toolbar { align-items: stretch; flex-direction: column; }
+  .search-box { width: 100%; }
+  .filter-row { justify-content: flex-start; }
+  .player-bar { grid-template-columns: minmax(0, 1fr) auto; }
+  .player-status { display: none; }
+}
+
+@media (max-width: 650px) {
+  .site-header { width: calc(100% - 32px); padding-top: 20px; }
+  .top-nav { display: none; }
+  .header-actions { margin-left: auto; }
+  .mini-button { padding: 10px 12px; }
+  .landing-screen, .content-width { width: calc(100% - 32px); }
+  .landing-screen { min-height: 820px; padding-top: 122px; }
+  .hero-title { font-size: clamp(49px, 15vw, 70px); }
+  .hero-title em { font-size: clamp(40px, 12vw, 56px); }
+  .hero-description { font-size: 16px; max-width: 310px; }
+  .hero-actions { align-items: center; flex-direction: column; gap: 14px; }
+  .hero-art-wrap { min-height: 390px; transform: scale(.7); margin-top: -15px; }
+  .halo { width: 370px; height: 370px; }
+  .scroll-hint { bottom: 15px; }
+  .app-shell { padding-top: 62px; }
+  .section-heading, .split-heading { display: block; }
+  .library-stats { width: fit-content; margin-top: 24px; }
+  .section-heading .text-button { display: block; margin-top: 18px; }
+  .featured-card { grid-template-columns: 1fr; gap: 22px; padding: 27px; }
+  .featured-art { order: -1; justify-self: start; width: 190px; height: 190px; }
+  .featured-copy h3 { font-size: 29px; }
+  .featured-note { margin: 17px 0; }
+  .moods-section, .library-section, .personal-picks { padding-top: 83px; }
+  .mood-grid, .song-grid, .picks-grid { grid-template-columns: 1fr; }
+  .mood-card { min-height: 170px; }
+  .song-card { grid-template-columns: 63px minmax(0, 1fr) auto; }
+  .song-art { width: 63px; height: 63px; }
+  .split-heading > p { margin-top: 13px; text-align: left; }
+  .picks-panel { padding: 20px 17px 15px; }
+  .final-section { padding-top: 110px; }
+  .final-message { font-size: 18px; }
+  .player-bar { right: 10px; bottom: 10px; left: 10px; gap: 10px; padding: 9px; }
+  .player-art { width: 39px; height: 39px; }
+  .player-song-copy strong { font-size: 12px; }
+  .player-song-copy span { font-size: 11px; }
+  .player-controls { gap: 6px; }
+  .player-control { font-size: 13px; }
+  .player-play { width: 36px; height: 36px; }
+  .player-detail-button { display: none; }
+  .modal-layout { grid-template-columns: 1fr; gap: 22px; padding: 38px 24px 25px; }
+  .modal-art { width: 150px; height: 150px; }
+  .modal-content h2 { font-size: 29px; }
+  .youtube-shell { margin: 0 24px 25px; }
+}

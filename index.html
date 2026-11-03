@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fff7f5" />
+    <meta name="description" content="Songs That Remind Me of You — a personal music experience for Jyoti." />
+    <title>Songs That Remind Me of You — For Jyoti</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
+    <div class="particle-field" aria-hidden="true">
+      <span>·</span><span>✦</span><span>·</span><span>✧</span><span>·</span><span>✦</span><span>·</span>
+    </div>
+
+    <header class="site-header">
+      <a class="brand-mark" href="#landing" data-scroll aria-label="Back to the beginning">
+        <span class="brand-symbol">J</span>
+        <span><small>a playlist for</small>Jyoti</span>
+      </a>
+      <nav class="top-nav" aria-label="Primary navigation">
+        <a href="#moods" data-scroll>Moods</a>
+        <a href="#library" data-scroll>Library</a>
+        <a href="#final-note" data-scroll>Before you go</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-button theme-toggle" type="button" aria-label="Toggle night mode" title="Toggle night mode">
+          <span class="theme-icon">☾</span>
+        </button>
+        <button class="mini-button" type="button" data-action="surprise">Surprise me <span>↗</span></button>
+      </div>
+    </header>
+
+    <main>
+      <section id="landing" class="landing-screen" aria-labelledby="hero-title">
+        <div class="landing-copy">
+          <p class="eyebrow reveal-item">A little constellation of songs <span>✦</span></p>
+          <h1 id="hero-title" class="hero-title reveal-item reveal-delay-1">
+            For <span class="jyoti-name">Jyoti</span><br />
+            <em>songs that remind me<br />of you.</em>
+          </h1>
+          <p class="hero-description reveal-item reveal-delay-2">Some songs are more than melodies. They hold little feelings, beautiful thoughts, and memories.</p>
+          <div class="hero-actions reveal-item reveal-delay-3">
+            <button class="primary-button" type="button" data-action="enter">
+              <span>Enter your music world</span><b>↗</b>
+            </button>
+            <span class="micro-copy"><span class="pulse-dot"></span> Made with a little feeling</span>
+          </div>
+        </div>
+
+        <div class="hero-art-wrap reveal-item reveal-delay-2" aria-label="A softly glowing record illustration">
+          <div class="hero-note note-one">♪</div>
+          <div class="hero-note note-two">♫</div>
+          <div class="hero-spark spark-one">✦</div>
+          <div class="hero-spark spark-two">✧</div>
+          <div class="halo halo-back"></div>
+          <div class="halo halo-front"></div>
+          <div class="record-stage">
+            <div class="record-shadow"></div>
+            <div class="record">
+              <div class="record-groove groove-one"></div>
+              <div class="record-groove groove-two"></div>
+              <div class="record-groove groove-three"></div>
+              <div class="record-label">
+                <span class="label-j">J</span>
+                <small>side A</small>
+              </div>
+            </div>
+            <div class="record-arm"><span></span></div>
+          </div>
+          <div class="art-caption"><span>01</span><span>for the soft parts</span><span>2026</span></div>
+        </div>
+
+        <div class="scroll-hint"><span class="scroll-line"></span><span>Scroll to explore</span></div>
+      </section>
+
+      <div id="app-shell" class="app-shell is-locked">
+        <section id="dashboard" class="dashboard-section content-width" aria-labelledby="dashboard-title">
+          <div class="section-heading reveal-on-scroll">
+            <div>
+              <p class="eyebrow">Your personal listening room <span>✦</span></p>
+              <h2 id="dashboard-title">Hello, <span class="script-accent">Jyoti</span><span class="heading-period">.</span></h2>
+              <p class="section-lede">A small collection of songs, gathered for all the versions of you.</p>
+            </div>
+            <div class="library-stats" aria-label="Library statistics">
+              <div><strong>20</strong><span>songs</span></div>
+              <div><strong>04</strong><span>moods</span></div>
+            </div>
+          </div>
+
+          <article class="featured-card reveal-on-scroll" data-featured-card>
+            <div class="featured-copy">
+              <div class="feature-kicker"><span class="live-dot"></span> Featured for you</div>
+              <h3 data-featured-title>I Think They Call This Love</h3>
+              <p data-featured-artist>Elliot James Reay</p>
+              <p class="featured-note">For the moments that feel like a warm light left on just for you.</p>
+              <div class="feature-actions">
+                <button class="primary-button small" type="button" data-action="play-featured"><span>Play this one</span><b>▶</b></button>
+                <button class="text-button" type="button" data-action="details-featured">View details <span>↗</span></button>
+              </div>
+            </div>
+            <div class="featured-art album-art art-sunrise" data-featured-art aria-label="Featured song album art">
+              <span class="art-orbit orbit-one"></span><span class="art-orbit orbit-two"></span>
+              <span class="art-sun"></span><span class="art-title">I think<br /><em>they call this love</em></span>
+              <span class="art-footer">J · 01</span>
+            </div>
+            <div class="featured-quote">“<span>the kind of song<br />that feels like a secret</span>”</div>
+          </article>
+        </section>
+
+        <section id="moods" class="moods-section content-width" aria-labelledby="moods-title">
+          <div class="section-heading compact reveal-on-scroll">
+            <div>
+              <p class="eyebrow">Choose your atmosphere <span>✦</span></p>
+              <h2 id="moods-title">What does today <em>feel</em> like?</h2>
+            </div>
+            <button class="text-button" type="button" data-action="show-all">See all songs <span>→</span></button>
+          </div>
+          <div id="mood-grid" class="mood-grid"></div>
+        </section>
+
+        <section id="library" class="library-section content-width" aria-labelledby="library-title">
+          <div class="section-heading compact reveal-on-scroll">
+            <div>
+              <p class="eyebrow">The complete collection <span>✦</span></p>
+              <h2 id="library-title">All the little <em>feelings</em></h2>
+            </div>
+            <button class="outline-button" type="button" data-action="surprise">Surprise me <span>✧</span></button>
+          </div>
+
+          <div class="library-toolbar reveal-on-scroll">
+            <label class="search-box">
+              <span aria-hidden="true">⌕</span>
+              <input id="song-search" type="search" placeholder="Search a song or artist" autocomplete="off" />
+            </label>
+            <div class="filter-row" role="group" aria-label="Filter songs">
+              <button class="filter-chip is-active" type="button" data-language="all">All songs</button>
+              <button class="filter-chip" type="button" data-language="english">English</button>
+              <button class="filter-chip" type="button" data-language="hindi">Hindi</button>
+              <button class="filter-chip" type="button" data-language="favourites">♡ Favourites</button>
+            </div>
+          </div>
+
+          <div id="active-filter" class="active-filter" hidden></div>
+          <div id="song-grid" class="song-grid" aria-live="polite"></div>
+          <p id="empty-state" class="empty-state" hidden>No songs found here yet. Try another feeling.</p>
+        </section>
+
+        <section class="personal-picks content-width" aria-label="Your personal song lists">
+          <div class="split-heading reveal-on-scroll">
+            <div><p class="eyebrow">Keep the feeling close <span>✦</span></p><h2>Made for <em>repeat</em></h2></div>
+            <p>Save the ones that feel a little too much like you.</p>
+          </div>
+          <div class="picks-grid">
+            <article class="picks-panel reveal-on-scroll">
+              <div class="panel-heading"><div><span class="panel-icon">♡</span><h3>Your favourites</h3></div><span id="favourite-count">0 songs</span></div>
+              <div id="favourites-list" class="mini-song-list"><p class="list-placeholder">Tap the heart on any song to keep it here.</p></div>
+            </article>
+            <article class="picks-panel recent-panel reveal-on-scroll">
+              <div class="panel-heading"><div><span class="panel-icon">↺</span><h3>Recently played</h3></div><span>just for now</span></div>
+              <div id="recent-list" class="mini-song-list"><p class="list-placeholder">Your listening trail will appear here.</p></div>
+            </article>
+          </div>
+        </section>
+
+        <section id="final-note" class="final-section content-width reveal-on-scroll" aria-labelledby="final-title">
+          <div class="final-rule"><span></span><i>✦</i><span></span></div>
+          <p class="eyebrow">One last little note <span>✦</span></p>
+          <h2 id="final-title">Before You <em>Go...</em></h2>
+          <p class="final-message">Music has a beautiful way of expressing things that ordinary words sometimes cannot. I just wanted to share a few songs that I find special. Hope you enjoy listening to them.</p>
+          <p class="signature">— Bhawesh <span>♡</span></p>
+        </section>
+      </div>
+    </main>
+
+    <aside id="player-bar" class="player-bar" aria-label="Music player" hidden>
+      <div class="player-song">
+        <div class="player-art album-art art-sunrise" data-player-art><span class="player-art-mark">J</span></div>
+        <div class="player-song-copy"><strong data-player-title>Choose a song</strong><span data-player-artist>Your music world awaits</span></div>
+      </div>
+      <div class="player-controls">
+        <button type="button" class="player-control" data-player="prev" aria-label="Previous song">↶</button>
+        <button type="button" class="player-play" data-player="play" aria-label="Play song"><span>▶</span></button>
+        <button type="button" class="player-control" data-player="next" aria-label="Next song">↷</button>
+      </div>
+      <div class="player-status"><span class="equalizer" aria-hidden="true"><i></i><i></i><i></i></span><span data-player-status>Ready when you are</span></div>
+      <button type="button" class="player-detail-button" data-action="current-details" aria-label="Open current song details">⌃</button>
+    </aside>
+
+    <dialog id="song-modal" class="song-modal">
+      <button class="modal-close" type="button" data-action="close-modal" aria-label="Close song details">×</button>
+      <div class="modal-layout">
+        <div class="modal-art album-art art-sunrise" data-modal-art><span class="modal-art-number">01</span><span class="modal-art-title">your song</span></div>
+        <div class="modal-content">
+          <p class="eyebrow">Now holding a feeling <span>✦</span></p>
+          <h2 data-modal-title>Song title</h2>
+          <p class="modal-artist" data-modal-artist>Artist name</p>
+          <div class="modal-actions"><button class="primary-button small" type="button" data-action="modal-play"><span>Play song</span><b>▶</b></button><button class="heart-button" type="button" data-action="modal-favourite" aria-label="Add to favourites">♡</button></div>
+          <div class="why-song"><div class="why-heading"><span>✦</span><h3>Why This Song?</h3></div><p data-modal-note>Your note will live here. Add it in <code>js/songs.js</code> when you are ready.</p></div>
+        </div>
+      </div>
+      <div class="youtube-shell"><div id="youtube-player" class="youtube-player"></div><div class="local-audio-shell" data-local-audio-shell hidden><span>LOCAL AUDIO · PLAYING FROM YOUR LIBRARY</span><audio id="local-audio" controls preload="metadata"></audio></div><div class="youtube-placeholder" data-youtube-placeholder><span>♪</span><strong>Playback is ready when you are.</strong><p>Add a local audio file to the project or use a YouTube ID.</p></div></div>
+      <a class="youtube-fallback-link" data-youtube-link target="_blank" rel="noopener noreferrer" hidden>Open this song on YouTube <span>↗</span></a>
+    </dialog>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <script src="js/songs.js"></script>
+    <script src="js/moods.js"></script>
+    <script src="js/favourites.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

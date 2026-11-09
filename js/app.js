@@ -2,6 +2,7 @@
   const songs = window.SONGS;
   const moods = window.MOODS;
   const state = { query: '', language: 'all', mood: 'all', currentSong: null };
+  const featured = songs.find((song) => song.id === 'until-i-found-you') || songs[0];
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 
@@ -109,6 +110,28 @@
     showToast.timer = window.setTimeout(() => toast.classList.remove('is-visible'), 3200);
   }
 
+  function celebrateHeart(origin) {
+    const layer = origin.closest('dialog')?.querySelector('[data-celebration-layer]') || $('[data-celebration-layer]');
+    if (!layer || !origin) return;
+    const rect = origin.getBoundingClientRect();
+    const symbols = ['♡', '♥', '✦', '✧', '♡', '•'];
+    symbols.forEach((symbol, index) => {
+      const particle = document.createElement('span');
+      particle.className = 'heart-particle';
+      particle.textContent = symbol;
+      particle.style.setProperty('--start-x', `${rect.left + rect.width / 2}px`);
+      particle.style.setProperty('--start-y', `${rect.top + rect.height / 2}px`);
+      particle.style.setProperty('--drift-x', `${(index - 2.5) * 25 + (index % 2 ? 8 : -8)}px`);
+      particle.style.setProperty('--drift-y', `${-42 - (index % 3) * 18}px`);
+      particle.style.setProperty('--rotation', `${(index - 2.5) * 26}deg`);
+      particle.style.setProperty('--particle-delay', `${index * 35}ms`);
+      particle.style.setProperty('--particle-size', `${13 + (index % 3) * 4}px`);
+      particle.style.setProperty('--particle-color', index % 2 ? '#d97998' : '#b96782');
+      layer.appendChild(particle);
+      window.setTimeout(() => particle.remove(), 1450);
+    });
+  }
+
   function syncPlayer(song = state.currentSong, playing = false, status = 'Ready when you are') {
     if (!song) return;
     state.currentSong = song;
@@ -123,9 +146,19 @@
 
   function enterExperience() {
     const app = $('#app-shell');
+    const openingNote = $('[data-opening-note]');
+    if (openingNote) {
+      openingNote.classList.add('is-dismissed');
+      openingNote.setAttribute('aria-hidden', 'true');
+      window.setTimeout(() => { openingNote.hidden = true; }, 560);
+    }
     app.classList.remove('is-locked');
     $('#player-bar').hidden = false;
-    window.setTimeout(() => $('#dashboard').scrollIntoView({ behavior: 'smooth', block: 'start' }), 80);
+    MusicPlayer.play(featured, songs.indexOf(featured));
+    window.setTimeout(() => {
+      $('[data-jyoti-video]')?.play().catch(() => {});
+      $('#dashboard').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 80);
   }
 
   function randomSong() {
@@ -134,7 +167,7 @@
     showToast(`A little surprise: ${song.title}`);
   }
 
-  function handleAction(action, song) {
+  function handleAction(action, song, origin) {
     if (action === 'enter') return enterExperience();
     if (action === 'surprise') return randomSong();
     if (action === 'show-all') { state.language = 'all'; state.mood = 'all'; setFilters(); renderSongs(); return $('#library').scrollIntoView({ behavior: 'smooth' }); }
@@ -146,6 +179,7 @@
     if (action === 'details-featured') return openModal(song, false);
     if (action === 'favourite' || action === 'modal-favourite') {
       const isFavourite = Favourites.toggle(song.id);
+      if (isFavourite) celebrateHeart(origin);
       if (action === 'modal-favourite') $('[data-action="modal-favourite"]').textContent = isFavourite ? '♥' : '♡';
       renderSongs(); renderPersonalLists();
       showToast(isFavourite ? 'Saved to your favourites' : 'Removed from your favourites');
@@ -159,8 +193,8 @@
       const filterElement = event.target.closest('[data-language]');
       const songElement = event.target.closest('[data-song-id]');
       if (actionElement) {
-        const id = actionElement.dataset.songId || songElement?.dataset.songId || (actionElement.dataset.action.includes('featured') ? songs[0].id : state.currentSong?.id);
-        handleAction(actionElement.dataset.action, songById(id));
+        const id = actionElement.dataset.songId || songElement?.dataset.songId || (actionElement.dataset.action.includes('featured') ? featured.id : state.currentSong?.id);
+        handleAction(actionElement.dataset.action, songById(id), actionElement);
       } else if (moodElement) {
         state.mood = moodElement.dataset.mood; renderSongs(); $('#library').scrollIntoView({ behavior: 'smooth', block: 'start' });
       } else if (filterElement) {
@@ -185,9 +219,12 @@
   function init() {
     renderMoods(); renderSongs(); renderPersonalLists(); bindEvents();
     if (localStorage.getItem('songs-that-remind-me:night') === 'true') { document.body.classList.add('night-mode'); $('.theme-icon').textContent = '☀'; }
-    const featured = songs[0];
     $('[data-featured-title]').textContent = featured.title;
     $('[data-featured-artist]').textContent = featured.artist;
+    $('[data-featured-note]').textContent = featured.note;
+    const featuredArt = $('[data-featured-art]');
+    featuredArt.className = `featured-art album-art ${artworkClass(featured)}`;
+    featuredArt.innerHTML = `<img class="featured-image" data-featured-image src="https://i.ytimg.com/vi/${encodeURIComponent(featured.videoId)}/hqdefault.jpg" alt="${escapeHtml(featured.title)} artwork" referrerpolicy="no-referrer" /><span class="art-orbit orbit-one"></span><span class="art-orbit orbit-two"></span><span class="art-sun"></span><span class="art-title">until I<br /><em>found you</em></span><span class="art-footer">J · ${String(songs.indexOf(featured) + 1).padStart(2, '0')}</span>`;
     document.addEventListener('click', (event) => { if (event.target.closest('[data-action="play-featured"], [data-action="details-featured"]')) return; });
     window.addEventListener('favourites:changed', () => { renderSongs(); renderPersonalLists(); if (state.currentSong) $('[data-action="modal-favourite"]').textContent = Favourites.has(state.currentSong.id) ? '♥' : '♡'; });
     window.addEventListener('recent:changed', renderPersonalLists);
@@ -203,6 +240,8 @@
         youtubeLink.hidden = false;
       }
     });
+    MusicPlayer.load(featured, songs.indexOf(featured));
+    window.setTimeout(() => MusicPlayer.play(featured, songs.indexOf(featured)), 250);
   }
 
   document.addEventListener('DOMContentLoaded', init);

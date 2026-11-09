@@ -14,3 +14,10 @@
 @keyframes recordFloat { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-8px) rotate(2deg); } }
 @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 4px rgba(217, 145, 165, .1); } 50% { box-shadow: 0 0 0 7px rgba(217, 145, 165, .02); } }
 @keyframes equalize { from { transform: scaleY(.55); } to { transform: scaleY(1); } }
+@keyframes openingNoteIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes openingNoteOut { to { opacity: 0; transform: scale(1.04); } }
+@keyframes letterFloat { 0%, 100% { transform: rotate(-1deg) translateY(0); } 50% { transform: rotate(.4deg) translateY(-6px); } }
+@keyframes loveLetterOpen { from { opacity: 0; transform: translateY(24px) rotate(-3deg) scale(.97); } to { opacity: 1; transform: translateY(0) rotate(-.7deg) scale(1); } }
+@keyframes heartDrift { 0%, 100% { transform: translateY(1px) rotate(-4deg); } 50% { transform: translateY(-5px) rotate(5deg); } }
+@keyframes visualHeart { 0%, 100% { transform: scale(.82) translateY(1px); } 50% { transform: scale(1.2) translateY(-3px); } }
+@keyframes heartBurst { 0% { opacity: 0; transform: translate(-50%, -50%) scale(.35) rotate(0); } 14% { opacity: 1; } 100% { opacity: 0; transform: translate(calc(-50% + var(--drift-x)), calc(-50% + var(--drift-y))) scale(1.08) rotate(var(--rotation)); } }

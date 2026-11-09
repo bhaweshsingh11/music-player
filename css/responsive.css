@@ -15,10 +15,16 @@
   .search-box { width: 100%; }
   .filter-row { justify-content: flex-start; }
   .player-bar { grid-template-columns: minmax(0, 1fr) auto; }
-  .player-status { display: none; }
+  .player-status { display: flex; font-size: 0; }
+  .player-status [data-player-status] { display: none; }
 }
 
 @media (max-width: 650px) {
+  .opening-note { padding: 18px; }
+  .opening-note-card { padding: 40px 24px 29px; border-radius: 23px; }
+  .opening-note-seal { right: 24px; width: 50px; height: 50px; }
+  .opening-note-copy { font-size: 17px; }
+  .opening-note-signoff { font-size: 17px; }
   .site-header { width: calc(100% - 32px); padding-top: 20px; }
   .top-nav { display: none; }
   .header-actions { margin-left: auto; }
@@ -42,6 +48,8 @@
   .featured-note { margin: 17px 0; }
   .moods-section, .library-section, .personal-picks { padding-top: 83px; }
   .mood-grid, .song-grid, .picks-grid { grid-template-columns: 1fr; }
+  .memory-grid { grid-template-columns: 1fr; }
+  .memory-card { min-height: 165px; }
   .mood-card { min-height: 170px; }
   .song-card { grid-template-columns: 63px minmax(0, 1fr) auto; }
   .song-art { width: 63px; height: 63px; }
@@ -49,6 +57,11 @@
   .picks-panel { padding: 20px 17px 15px; }
   .final-section { padding-top: 110px; }
   .final-message { font-size: 18px; }
+  .love-letter { padding: 55px 24px 34px; border-radius: 22px; }
+  .love-letter-ribbon { left: 21px; }
+  .love-letter-hearts { right: 21px; }
+  .love-letter-body { font-size: 18px; }
+  .love-letter-signoff { font-size: 19px; }
   .player-bar { right: 10px; bottom: 10px; left: 10px; gap: 10px; padding: 9px; }
   .player-art { width: 39px; height: 39px; }
   .player-song-copy strong { font-size: 12px; }

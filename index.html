@@ -43,7 +43,27 @@
     </header>
 
     <main>
-      <section class="opening-note" data-opening-note aria-labelledby="opening-note-title" aria-modal="true">
+      <section class="ready-dialog" data-ready-dialog aria-labelledby="ready-dialog-title" aria-modal="true">
+        <article class="ready-dialog-card">
+          <div class="ready-dialog-heart" aria-hidden="true">♡</div>
+          <p class="eyebrow">Before we begin <span>✦</span></p>
+          <h2 id="ready-dialog-title">Are you ready?</h2>
+          <p>A little world of songs, memories, and feelings is waiting for you.</p>
+          <button class="primary-button" type="button" data-action="ready"><span>Yes, I'm ready</span><b>♡</b></button>
+        </article>
+      </section>
+      <section class="welcome-bouquet" data-welcome-bouquet hidden aria-live="polite">
+        <div class="flower-rain" aria-hidden="true"><span>🌸</span><span>🌹</span><span>🌼</span><span>🌷</span><span>🌺</span><span>🌻</span><span>🌸</span><span>💐</span><span>🌹</span><span>🌼</span><span>🌷</span><span>🌺</span></div>
+        <div class="welcome-bouquet-card">
+          <div class="bouquet-sparkles" aria-hidden="true"><span>✦</span><span>✧</span><span>♡</span><span>✦</span></div>
+          <div class="bouquet-flowers" aria-label="Roses, tulips, hibiscus, sunflowers and other flowers"><span class="bouquet-flower flower-one">🌹</span><span class="bouquet-flower flower-two">🌷</span><span class="bouquet-flower flower-three">🌺</span><span class="bouquet-flower flower-four">🌻</span><span class="bouquet-flower flower-five">🌸</span><span class="bouquet-flower flower-six">🌼</span><span class="bouquet-flower flower-seven">💐</span></div>
+          <div class="bouquet-wrap" aria-hidden="true"><span></span><span></span><span></span></div>
+          <p class="bouquet-eyebrow">A small gift for you</p>
+          <h2>Welcome, Jyoti <span>♡</span></h2>
+          <p>Here is a small bouquet of feelings, made just for you.</p>
+        </div>
+      </section>
+      <section class="opening-note" data-opening-note hidden aria-labelledby="opening-note-title" aria-modal="true">
         <video class="opening-note-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
           <source src="assets/VIDEO/vidssave.com Nature _ Copyright free _ Background video _ FLOWERS _ Tulips _ Non -Copyrighted 720P.mp4" type="video/mp4" />
         </video>

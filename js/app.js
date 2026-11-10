@@ -3,6 +3,7 @@
   const moods = window.MOODS;
   const state = { query: '', language: 'all', mood: 'all', currentSong: null };
   const featured = songs.find((song) => song.id === 'until-i-found-you') || songs[0];
+  let welcomeSequenceStarted = false;
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 
@@ -144,6 +145,29 @@
     $('[data-player="play"]').innerHTML = playing ? '<span>Ⅱ</span>' : '<span>▶</span>';
   }
 
+  function startWelcomeSequence() {
+    if (welcomeSequenceStarted) return;
+    welcomeSequenceStarted = true;
+    const readyDialog = $('[data-ready-dialog]');
+    const bouquet = $('[data-welcome-bouquet]');
+    const openingNote = $('[data-opening-note]');
+    readyDialog.classList.add('is-dismissed');
+    window.setTimeout(() => {
+      readyDialog.hidden = true;
+      bouquet.hidden = false;
+      bouquet.classList.add('is-visible');
+      MusicPlayer.play(featured, songs.indexOf(featured));
+    }, 520);
+    window.setTimeout(() => {
+      bouquet.classList.add('is-dismissed');
+      window.setTimeout(() => {
+        bouquet.hidden = true;
+        openingNote.hidden = false;
+        openingNote.classList.add('is-visible');
+      }, 620);
+    }, 3150);
+  }
+
   function enterExperience() {
     const app = $('#app-shell');
     const openingNote = $('[data-opening-note]');
@@ -168,6 +192,7 @@
   }
 
   function handleAction(action, song, origin) {
+    if (action === 'ready') return startWelcomeSequence();
     if (action === 'enter') return enterExperience();
     if (action === 'surprise') return randomSong();
     if (action === 'show-all') { state.language = 'all'; state.mood = 'all'; setFilters(); renderSongs(); return $('#library').scrollIntoView({ behavior: 'smooth' }); }
@@ -241,7 +266,6 @@
       }
     });
     MusicPlayer.load(featured, songs.indexOf(featured));
-    window.setTimeout(() => MusicPlayer.play(featured, songs.indexOf(featured)), 250);
   }
 
   document.addEventListener('DOMContentLoaded', init);

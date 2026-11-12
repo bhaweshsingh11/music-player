@@ -149,23 +149,32 @@
     if (welcomeSequenceStarted) return;
     welcomeSequenceStarted = true;
     const readyDialog = $('[data-ready-dialog]');
+    const roseSequence = $('[data-jyoti-rose]');
     const bouquet = $('[data-welcome-bouquet]');
     const openingNote = $('[data-opening-note]');
     readyDialog.classList.add('is-dismissed');
     window.setTimeout(() => {
       readyDialog.hidden = true;
-      bouquet.hidden = false;
-      bouquet.classList.add('is-visible');
+      roseSequence.hidden = false;
+      roseSequence.classList.add('is-visible');
       MusicPlayer.play(featured, songs.indexOf(featured));
     }, 520);
     window.setTimeout(() => {
-      bouquet.classList.add('is-dismissed');
+      roseSequence.classList.add('is-dismissed');
       window.setTimeout(() => {
-        bouquet.hidden = true;
-        openingNote.hidden = false;
-        openingNote.classList.add('is-visible');
+        roseSequence.hidden = true;
+        bouquet.hidden = false;
+        bouquet.classList.add('is-visible');
+        window.setTimeout(() => {
+          bouquet.classList.add('is-dismissed');
+          window.setTimeout(() => {
+            bouquet.hidden = true;
+            openingNote.hidden = false;
+            openingNote.classList.add('is-visible');
+          }, 620);
+        }, 3150);
       }, 620);
-    }, 3150);
+    }, 10520);
   }
 
   function enterExperience() {

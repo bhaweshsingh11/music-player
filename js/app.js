@@ -157,10 +157,12 @@
       readyDialog.hidden = true;
       roseSequence.hidden = false;
       roseSequence.classList.add('is-visible');
+      window.JyotiRoseAnimation?.start();
       MusicPlayer.play(featured, songs.indexOf(featured));
     }, 520);
     window.setTimeout(() => {
       roseSequence.classList.add('is-dismissed');
+      window.JyotiRoseAnimation?.stop();
       window.setTimeout(() => {
         roseSequence.hidden = true;
         bouquet.hidden = false;

@@ -26,9 +26,6 @@
 @keyframes flowerOpen { 0% { opacity: 0; transform: translateY(35px) scale(.25) rotate(-15deg); } 72% { opacity: 1; transform: translateY(-5px) scale(1.08) rotate(4deg); } 100% { opacity: 1; transform: translateY(0) scale(1) rotate(0); } }
 @keyframes flowerFall { 0% { opacity: 0; transform: translate3d(0, -40px, 0) rotate(0deg) scale(.75); } 12% { opacity: .95; } 100% { opacity: 0; transform: translate3d(var(--flower-drift), 110vh, 0) rotate(290deg) scale(1.08); } }
 @keyframes roseCardIn { from { opacity: 0; transform: translateY(24px) scale(.93) rotate(-1deg); } to { opacity: 1; transform: translateY(0) scale(1) rotate(0); } }
-@keyframes roseGlowPulse { 0%, 100% { opacity: .55; transform: scale(.92); } 50% { opacity: 1; transform: scale(1.08); } }
-@keyframes roseWordAppear { 0%, 100% { opacity: .12; transform: translateY(5px) scale(.9) rotate(var(--word-rotation, 0deg)); } 22%, 70% { opacity: .9; transform: translateY(0) scale(1) rotate(var(--word-rotation, 0deg)); } }
-@keyframes roseBloomFloat { 0%, 100% { transform: translate(-50%, -50%) rotate(-2deg) scale(.96); } 50% { transform: translate(-50%, -55%) rotate(2deg) scale(1.05); } }
 @keyframes roseTimer { from { transform: scaleX(1); } to { transform: scaleX(0); } }
 @keyframes memoryCardGlow { 0% { box-shadow: var(--shadow-small); } 45% { box-shadow: 0 0 0 7px rgba(217,145,165,.1), 0 18px 42px rgba(185,103,130,.18); } 100% { box-shadow: var(--shadow-small); } }
 @keyframes memoryShimmer { 0% { left: -70%; opacity: 0; } 18% { opacity: .8; } 100% { left: 135%; opacity: 0; } }
